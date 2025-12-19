@@ -1,29 +1,36 @@
+public class SelectionSort {
 
-public class selectionSort {
-    public static int[] selSort(int[] L) {
-        int n = L.length;
-        for (int i = 0; i < n; i++) {
-            int min = L[i];
-            int minpos = i;
+    static void selectionSort(int[] arr) {
+        int n = arr.length;
+
+        // Step 1: Traverse array
+        for (int i = 0; i < n - 1; i++) {
+
+            // Step 2: Assume current index has minimum
+            int minIndex = i;
+
+            // Step 3: Find actual minimum in remaining array
             for (int j = i + 1; j < n; j++) {
-                if (L[j] < min) {
-                    min = L[j];
-                    minpos = j;
+                if (arr[j] < arr[minIndex]) {
+                    minIndex = j;
                 }
             }
-            int temp = L[i];
-            L[i] = min;
-            L[minpos] = temp;
+
+            // Step 4: Swap only if needed
+            if (minIndex != i) {
+                int temp = arr[i];
+                arr[i] = arr[minIndex];
+                arr[minIndex] = temp;
+            }
         }
-        return L;
     }
 
     public static void main(String[] args) {
-        int arr[] = { 1, 2, 5, 3, 4, 68, 9, 3 };
-        int asn[] = selSort(arr);
-        for (int elm : asn) {
-            System.out.println(elm);
+        int[] arr = { 64, 25, 12, 22, 11 };
+        selectionSort(arr);
+
+        for (int num : arr) {
+            System.out.print(num + " ");
         }
-        System.out.println(asn);
     }
 }
