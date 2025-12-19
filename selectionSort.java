@@ -24,5 +24,6 @@ public class selectionSort {
         for (int elm : asn) {
             System.out.println(elm);
         }
+        System.out.println(asn);
     }
 }
