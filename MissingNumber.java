@@ -1,7 +1,8 @@
+// Find missing number in 1 to n
 public class MissingNumber {
 
     public static int findMissing(int arr[], int n) {
-        int expectedSum = n * (n + 1) / 2;
+        int expectedSum = n * (n + 1) / 2; //main formula 
         int actualSum = 0;
 
         for (int i = 0; i < arr.length; i++) {
