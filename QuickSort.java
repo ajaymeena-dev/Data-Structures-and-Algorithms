@@ -15,13 +15,17 @@ class QuickSort {
     // }
 
     public static int[] qsort(int arr[],int start,int end){
+        // base case when the length of arr is 1 or less
         if(end-start<=1){
             return arr;
         }
-
+        
+        // selecting the first element as pivot
+        // initiating the upper and lower pointer from start+1 i.e. next to pivot 
         int pivot=arr[start];
         int lower = start+1;
         int upper = start+1;
+
         // we will have the partiton as [pivot, lower segment, upper segment]
         // below loop will create this segment as discribed above
         for(int i = start+1; i<=end;i++){
@@ -46,9 +50,8 @@ class QuickSort {
         arr[start]=temp;
 
 
-
+        //check the arr status at every pass or recursion
         System.out.println("lower & upper size : "+lower+" "+upper);
-        
         for (int i : arr) {
             System.err.print(i+" ");
         }
@@ -57,7 +60,6 @@ class QuickSort {
 
         // now we have one element(pivot) at its correct position 
         // we will do the same thing recursivly with both the lower and upper partition
-
         qsort(arr,start,lower-2);
         qsort(arr, lower, end);
 
@@ -68,7 +70,9 @@ class QuickSort {
         int arr[] = { 6,19,8, 5, 4, 3, 9, 12,2, 10 };
         int n = arr.length;
 
+        
         int []result=qsort(arr, 0, n - 1);
+        System.out.println("Sorted array : ");
         for (int i : result) {
             System.out.print(i+" ");
         }
